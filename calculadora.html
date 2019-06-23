@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculadora</title>
+	<style>
+#calculadora{
+    display:block;
+    margin:0 auto;
+    border-radius:25px;
+    width:200px;
+    height:300px;
+    background-color:red; 
+    padding:10px;
+}
+#calculadora td button{
+    width:40px;
+    height:40px;
+    font-size:30px;
+    display:block;
+    color:blue;
+    
+}
+#resultados{
+    display:block;
+    text-align:center;
+    font-size:50px;
+    margin-bottom:20px;
+    width:190px;
+    height:70px;
+    line-height:80px;
+    border-radius:25px;
+    background-color:white;
+    overflow-y:scroll ;
+    color:green;
+}
+	</style>
+	
+    </head>
+    <body onload="inicia()">
+<script>
+var valorA;
+var valorB;
+var valorC;
+
+function inicia(){
+    var resultados = document.getElementById("resultados");
+    var um = document.getElementById("um");
+    var dois= document.getElementById("dois");
+    var tres = document.getElementById("tres");
+    var quatro= document.getElementById("quatro");
+    var cinco = document.getElementById("cinco");
+    var seis = document.getElementById("seis");
+    var sete = document.getElementById("sete");
+    var oito = document.getElementById("oito");
+    var nove = document.getElementById("nove");
+    var zero = document.getElementById("zero");
+    var exclui = document.getElementById("exclui");
+    var igual = document.getElementById("igual");
+    var divisao = document.getElementById("divisao");
+    var multi = document.getElementById("multiplicacao");
+    var adicao= document.getElementById("adicao");
+    var subtracao = document.getElementById("subtracao");
+    
+    um.onclick = function(e){
+        resultados.textContent = resultados.textContent + "1";
+    }
+     dois.onclick = function(e){
+        resultados.textContent = resultados.textContent + "2";
+    }
+     tres.onclick = function(e){
+        resultados.textContent = resultados.textContent + "3";
+    } 
+    quatro.onclick = function(e){
+        resultados.textContent = resultados.textContent + "4";
+    } 
+    cinco.onclick = function(e){
+        resultados.textContent = resultados.textContent + "5";
+    }
+     seis.onclick = function(e){
+        resultados.textContent = resultados.textContent + "6";
+    } 
+    sete.onclick = function(e){
+        resultados.textContent = resultados.textContent + "7";
+    }
+     oito.onclick = function(e){
+        resultados.textContent = resultados.textContent + "8";
+    } 
+    nove.onclick = function(e){
+        resultados.textContent = resultados.textContent + "9";
+    }
+     zero.onclick = function(e){
+        resultados.textContent = resultados.textContent + "0";
+    } 
+    adicao.onclick = function(e){
+        valorA = resultados.textContent;
+        valorC = "+";
+        limpar();
+    } 
+    subtracao.onclick = function(e){
+        valorA = resultados.textContent ;
+        valorC ="-";
+        limpar();
+    } 
+    divisao.onclick = function(e){
+        valorA = resultados.textContent;
+        valorC ="/";
+        limpar();
+    }
+     multi.onclick = function(e){
+        valorA = resultados.textContent ;
+        valorC = "*";
+        limpar();
+    } 
+    igual.onclick = function(e){
+      valorB = resultados.textContent;
+      resolver();
+    } 
+    exclui.onclick = function(e){
+         resultados.textContent ="";
+         valorA =0;
+         valorB =0;
+         valorC ="";
+    }
+}
+    function limpar(){
+        resultados.textContent ="";
+    }
+    
+    function resolver(){
+        var res = 0;
+        switch(valorC){
+            case "+":
+            res = parseFloat(valorA) + parseFloat(valorB);
+            break;
+            
+            case "-":
+            res = parseFloat(valorA) - parseFloat(valorB);
+            break;
+            
+            case "*":
+            res = parseFloat(valorA) * parseFloat(valorB);
+            break;
+            
+            case "/":
+            res = parseFloat(valorA) / parseFloat(valorB);
+            break;
+        }
+        
+        resultados.textContent = res;
+    
+} 
+	</script>
+        <table id="calculadora">
+        <tr>
+            <td colspan="40"><span id="resultados"></span></td>
+        </tr>
+        <tr>
+            <td><button id="sete">7</button></td>
+            <td><button id="oito">8</button></td>
+            <td><button id="nove">9</button></td>
+            <td><button id="adicao">+</button></td>
+        </tr>
+        <tr>
+            <td><button id="quatro">4</button></td>
+            <td><button id="cinco">5</button></td>
+            <td><button id="seis">6</button></td>
+            <td><button id="subtracao">-</button></td>
+        </tr>
+        <tr>
+            <td><button id="um">1</button></td>
+            <td><button id="dois">2</button></td>
+            <td><button id="tres">3</button></td>
+            <td><button id="multiplicacao">*</button></td>
+        </tr>
+         <tr>
+            <td><button id="exclui">C</button></td>
+            <td><button id="igual">=</button></td>
+            <td><button id="zero">0</button></td>
+            <td><button id="divisao">÷</button></td>
+        </tr>
+        </table>
+    </body>
