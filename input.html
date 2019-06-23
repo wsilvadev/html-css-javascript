@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>using input</title>
+    </head>
+    <body >
+    <script>window.onload=function(){
+ var res = document.getElementById("result");     
+ var but = document.getElementById("buton");
+   res.addEventListener("keyup", clicar);
+               
+  function clicar(){
+  var Res = res.value;
+  document.getElementById("CD").innerHTML= Res;
+  }
+  
+
+}
+    </script>
+        <label id="name" >Nome</label>
+        <input type="password" id="result"/>
+        <p id="CD"></p>
+
+    </body>
